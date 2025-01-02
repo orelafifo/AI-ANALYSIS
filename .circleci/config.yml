@@ -12,14 +12,15 @@ jobs:
       - checkout
       - python/install-packages
       - run:
-          name: Install dependencies
+          name: Create and activate virtual environment
           command: |
-            # Create the virtual environment in the correct directory
+            # Create the virtual environment in the current directory
             python -m venv venv
             # Activate the virtual environment
             . venv/bin/activate
-            # Upgrade pip and install the dependencies
+            # Upgrade pip
             pip install --upgrade pip
+            # Install dependencies from requirements.txt
             pip install -r requirements.txt
       - run:
           name: Run tests
@@ -43,5 +44,6 @@ workflows:
     # - deploy:
     #     requires:
     #       - test-python
+
 
 
