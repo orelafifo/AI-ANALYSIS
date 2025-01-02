@@ -5,7 +5,7 @@ iniconfig==2.0.0
 joblib==1.4.2
 kiwisolver==1.4.8
 matplotlib==3.10.0
-numpy==1.24.0  # Fixed numpy version
+numpy==1.23.5  # Compatible version for all packages
 packaging==24.2
 pandas==2.2.3
 pillow==11.0.0
@@ -20,3 +20,4 @@ seaborn==0.13.2
 six==1.17.0
 threadpoolctl==3.5.0
 tzdata==2024.2
+
