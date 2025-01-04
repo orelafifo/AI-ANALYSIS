@@ -24,13 +24,17 @@ def test_handle_missing_data():
     # Ensures missing values (NaNs) are presented and not filled or droped
     assert ai_df.isnull().sum().sum() > 0, "The dataset should have missing values!"
 
-    # Check that mean and median ignore NaN values and still return a valid result
-    column_mean = ai_df['column1'].mean()  # Calculate mean ignoring NaN
-    column_median = ai_df['column1'].median()  # Calculate median ignoring NaN
+    # Loop through all columns and calculate the mean and median, ignoring NaN values
+    for column in ai_df.columns:
+        column_mean = ai_df[column].mean()  # Calculate mean ignoring NaN
+        column_median = ai_df[column].median()  # Calculate median ignoring NaN
+        print(f"Mean of {column}: {column_mean}")
+        print(f"Median of {column}: {column_median}")
 
-    # Ensure that the mean and median are calculated despite missing values
-    assert isinstance(column_mean, (float, int)), f"Invalid mean value: {column_mean}"
-    assert isinstance(column_median, (float, int)), f"Invalid median value: {column_median}"
+
+        # Ensure that the mean and median are valid numbers (ignoring NaN values)
+        assert isinstance(column_mean, (float, int)), f"Invalid mean value for column {column}: {column_mean}"
+        assert isinstance(column_median, (float, int)), f"Invalid median value for column {column}: {column_median}"
 
    
 
