@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Load data
-file_path = 'data/aipidata.xlsx'  # Relative path to the data folder
+file_path = 'data/aipidata.xlsx'  # Path to the data folder
 ai_df = pd.read_excel(file_path, skiprows=1)
 ai_df.rename(columns={'Digitial Infrastructure': 'Digital Infrastructure'}, inplace=True) # Rename mispelt column
 print(ai_df.columns)
@@ -67,8 +67,7 @@ plt.show()
 
 # Prepare the data
 economic_status = ['AE', 'EM', 'LIC']
-indicators = ['Digital Infrastructure', 'Innovation and Economic Integration', 
-              'Human Capital and Labor Market Policies', 'Regulation and Ethics']
+indicators = ['Digital Infrastructure', 'Innovation and Economic Integration', 'Human Capital and Labor Market Policies', 'Regulation and Ethics']
 
 # Filter data by economic status and get mean values of the 4 indicators
 grouped_data = ai_df.groupby('type')[indicators].mean().loc[economic_status]
@@ -101,10 +100,40 @@ ax.set_xticklabels(indicators, fontsize=12)
 
 
 # Set the title and legend
-ax.set_title('AI Preparedness Across Economic Status by Indicator', fontsize=14, color='black', fontweight='bold', pad=30)
+ax.set_title('Average AI Preparedness Across Economic Status by Indicator', fontsize=14, color='black', fontweight='bold', pad=30)
 plt.legend(title='Economic Status', loc='upper right', bbox_to_anchor=(1.2, 1))
 
 # Show the plot
 plt.tight_layout()
 plt.savefig('aipi_radar_chart.png', bbox_inches='tight')
 plt.show()
+
+# Define the indicators 
+indicators = ['Digital Infrastructure', 'Innovation and Economic Integration', 
+              'Human Capital and Labor Market Policies', 'Regulation and Ethics']
+
+# Create a scatter plot for each indicator
+fig, axes = plt.subplots(2, 2, figsize=(10, 8), dpi=150)  # Arrangement 
+
+# Map index to the correct subplot
+for i, indicator in enumerate(indicators):
+    row, col = divmod(i, 2)  
+    ax = axes[row, col]
+    
+    # Scatter plot
+    ax.scatter(ai_df[indicator], ai_df['AIPI'], alpha=0.7, edgecolors='k', color='pink')
+    
+    # Add titles, labels, and grid
+    ax.set_title(f'AIPI vs. {indicator}', fontsize=11, pad=15)
+    ax.set_xlabel(indicator, fontsize=9, labelpad=10)
+    ax.set_ylabel('AI Preparedness Index (AIPI)', fontsize=9, labelpad=10)
+    ax.grid(color='gray', linestyle=':', linewidth=0.5, alpha=0.7)
+
+# Adjust layout 
+plt.tight_layout(pad=3.0) 
+
+
+# Save and show the plot
+plt.savefig('aipi_scatter_plots_adjusted.png', bbox_inches='tight', pad_inches=0.5)
+plt.show()
+
