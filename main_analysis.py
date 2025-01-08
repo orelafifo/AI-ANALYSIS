@@ -65,44 +65,6 @@ plt.tight_layout()
 plt.savefig('aipi_boxplot.png', bbox_inches='tight', pad_inches=0.5)
 plt.show()
 
-# Prepare the data
-economic_status = ['AE', 'EM', 'LIC']
-indicators = ['Digital Infrastructure', 'Innovation and Economic Integration', 'Human Capital and Labor Market Policies', 'Regulation and Ethics']
-
-# Filter data by economic status and get mean values of the 4 indicators
-grouped_data = ai_df.groupby('type')[indicators].mean().loc[economic_status]
-
-# Prepare Radar Chart
-# Define the number of variables (indicators)
-num_vars = len(indicators)
-
-# Compute angle for each axis
-angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
-
-# Close the circle making sure to repeat the first value
-angles += angles[:1]
-
-# Create the radar chart
-fig, ax = plt.subplots(figsize=(8, 8), dpi=150, subplot_kw=dict(polar=True))
-
-# Plot each economic group
-for status in economic_status:
-    values = grouped_data.loc[status].tolist()
-    values += values[:1]  # Close the circle
-    ax.plot(angles, values, label=status, linewidth=2, linestyle='solid')
-    ax.fill(angles, values, alpha=0.25)  # Fill area under the line
-
-
-# Set the labels for each axis
-ax.set_yticklabels([])
-ax.set_xticks(angles[:-1])
-ax.set_xticklabels(indicators, fontsize=12)
-
-
-# Set the title and legend
-ax.set_title('Average AI Preparedness Across Economic Status by Indicator', fontsize=14, color='black', fontweight='bold', pad=30)
-plt.legend(title='Economic Status', loc='upper right', bbox_to_anchor=(1.2, 1))
-
 # Show the plot
 plt.tight_layout()
 plt.savefig('aipi_radar_chart.png', bbox_inches='tight')
