@@ -27,7 +27,7 @@ The datset includes the AIPI index score and the four AIPI indicator scores of 1
    ```
 2. Navigate to the project folder:
    ```bash
-   cd ai-analysis-project
+   cd AI-ANALYSIS
    ```
 3. Install the required dependencies:
    ```bash
