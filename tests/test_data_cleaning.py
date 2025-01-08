@@ -24,7 +24,7 @@ def test_handle_missing_data():
     # Load data
     ai_df = pd.read_excel('data/aipidata.xlsx', skiprows=1)
 
-    # Ensures missing values (NaNs) are presented and not filled or droped
+    # Makes sure missing values are shown and not filled or droped
     assert ai_df.isnull().sum().sum() > 0, "The dataset should have missing values!"
 
     # Loop through all columns
