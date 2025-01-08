@@ -44,7 +44,6 @@ plt.legend(title='AIPI Indicators', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.tight_layout()
 
 plt.savefig('aipi_stacked_bar_chart.png')
-plt.show()
 
 # Create the boxplot 
 plt.figure(figsize=(10, 6))
@@ -60,15 +59,9 @@ plt.ylabel('AI Preparedness Index (AIPI)', fontsize=10)
 plt.xticks(fontsize=10)
 plt.yticks(fontsize=10)
 
-# Save and display the plot
+# Adjust layout
 plt.tight_layout()
 plt.savefig('aipi_boxplot.png', bbox_inches='tight', pad_inches=0.5)
-plt.show()
-
-# Show the plot
-plt.tight_layout()
-plt.savefig('aipi_radar_chart.png', bbox_inches='tight')
-plt.show()
 
 # Define the indicators 
 indicators = ['Digital Infrastructure', 'Innovation and Economic Integration', 
@@ -93,9 +86,8 @@ for i, indicator in enumerate(indicators):
 
 # Adjust layout 
 plt.tight_layout(pad=3.0) 
-
-
-# Save and show the plot
 plt.savefig('aipi_scatter_plots_adjusted.png', bbox_inches='tight', pad_inches=0.5)
+
+# Display all the plots at once
 plt.show()
 
