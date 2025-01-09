@@ -31,7 +31,7 @@ The datset includes the AIPI index score and the four AIPI indicator scores of 1
    ```
 3. Install the required dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install --user -r requirements.txt
    ```
 4. Run the main analysis script:
    ```bash
@@ -41,7 +41,7 @@ The datset includes the AIPI index score and the four AIPI indicator scores of 1
 
 ## Results
 
-- Advanced economies are the modt prepared for AI adoption.
+- Advanced economies are the most prepared for AI adoption.
 - The distribution of AIPI scores is the least skewed and least dispersed for low-income countries.
 - Religon and ethics is the most influential AIPI while Innovation and economic integration is the least.
 
