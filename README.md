@@ -43,7 +43,7 @@ The datset includes the AIPI index score and the four AIPI indicator scores of 1
 
 - Advanced economies are the most prepared for AI adoption.
 - The distribution of AIPI scores is the least skewed and least dispersed for low-income countries.
-- Religon and ethics is the most influential AIPI while Innovation and economic integration is the least.
+- Religon and ethics is the most dominant AIPI while digital infrastructure is the least.
 
 ## Testing
 
